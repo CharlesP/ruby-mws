@@ -37,7 +37,7 @@ module MWS
         params = [default_params(name), params, options, @connection.to_hash].inject :merge
 
         params[:lists] ||= {}
-        params[:lists][:marketplace_id] = "MarketplaceId.Id"
+        #params[:lists][:marketplace_id] = "MarketplaceId.Id"
 
         query = Query.new params
         resp = self.class.send(params[:verb], query.request_uri)
@@ -52,6 +52,7 @@ module MWS
 
       def default_params(name)
         {
+          :marketplace_id    => 'MarketplaceId.Id',
           :action            => name.to_s.camelize,
           :signature_method  => 'HmacSHA256',
           :signature_version => '2',
