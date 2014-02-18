@@ -26,6 +26,15 @@ describe MWS::API::Report do
       end
 
     end
+  
+    describe "get_report_list" do
+      it "should get a list of reports" do
+        response = @mws.reports.get_report_list timestamp: timestamp
+        response.request_report_info.should be_an_instance_of Array
+      end
+
+    end
+  
   end
 
 end
