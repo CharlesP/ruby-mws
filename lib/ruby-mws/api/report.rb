@@ -16,6 +16,11 @@ module MWS
                   :verb => :get,
                   :uri => '/',
                   :version => '2009-01-01'
+                  
+      def_request [:get_report_list, :get_report_list_by_next_token],
+                  :verb => :get,
+                  :uri => '/',
+                  :version => '2009-01-01'
     end
 
   end
