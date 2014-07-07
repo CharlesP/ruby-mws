@@ -11,6 +11,7 @@ module MWS
       #format :xml
       headers "User-Agent"   => "ruby-mws/#{MWS::VERSION} (Language=Ruby/1.9.3-p0)"
       headers "Content-Type" => "text/xml"
+      #headers "Content-MD5"  => "ExampleMd5HashOfHttpBodyAsPerRfc2616Example"
 
       attr_accessor :response
 
@@ -37,11 +38,11 @@ module MWS
         params = [default_params(name), params, options, @connection.to_hash].inject :merge
 
         params[:lists] ||= {}
-        #params[:lists][:marketplace_id] = "MarketplaceId.Id"
+        params[:lists][:marketplace_id] = "MarketplaceId.Id"
 
         query = Query.new params
         resp = self.class.send(params[:verb], query.request_uri)
-
+        
         @response = Response.parse resp, name, params
 
         if @response.respond_to?(:next_token) and @next[:token] = @response.next_token  # modifying, not comparing
