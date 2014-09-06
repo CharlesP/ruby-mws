@@ -40,7 +40,7 @@ module MWS
 
       private
       def build_sorted_query(signature=nil)
-        params = privateparams = Hash[params.map{|k,v| [k.camelize.sub(/Aws/,'AWS'), v]}](signature).sort.map! { |p| "#{p[0]}=#{process_param(p[1])}" }
+        params = build_query_hash(signature).sort.map! { |p| "#{p[0]}=#{process_param(p[1])}" }
         params.join('&')
       end
 
