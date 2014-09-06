@@ -40,11 +40,25 @@ module MWS
         # prepare all required params...
         params = [default_params(name), params, options, @connection.to_hash].inject :merge
 
+        # default/common params
+        params[:action]            ||= name.to_s.camelize
+        params[:verb]              ||= :get
+        params[:signature_method]  ||= 'HmacSHA256'
+        params[:signature_version] ||= '2'
+        params[:timestamp]         ||= Time.now.iso8601
+        params[:version]           ||= '2009-01-01'
+        params[:uri]               ||= '/'
+
         params[:lists] ||= {}
         params[:lists][:marketplace_id] = "MarketplaceId.Id"
 
         query = Query.new params
-        resp = self.class.send(params[:verb], query.request_uri)
+        resp = self.class.send(params[:verb], query.request_uri, query.http_options)
+        
+        # content_type = resp.headers['content-type']
+        # if not content_type =~ /text\/xml/ || content_type =~ /application\/xml/ || content_type =~ /application\/octet-stream/
+        #   raise ErrorResponse, "Expected to receive XML response from Amazon MWS! Actually received: #{content_type}\nStatus: #{resp.response.code}\nBody: #{resp.body.size > 4000 ? resp.body[0...4000] + '...' : resp.body}"
+        # end
         
         @response = Response.parse resp, name, params
 

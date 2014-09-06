@@ -5,12 +5,12 @@ module MWS
 
     module Feeds
       def submit_feed(feed_type, xml)
-        puts "ruby-mws: Sending #{feed_type} feed to Amazon MWS. Body: #{xml.size > 1000 ? xml[0...1000] + '...' : xml}" if $VERBOSE
+        logger.debug "ruby-mws: Sending #{feed_type} feed to Amazon MWS. Body: #{xml.size > 1000 ? xml[0...1000] + '...' : xml}" if $VERBOSE
         response = send_request(:submit_feed, :feed_type => feed_type, :body => xml, :verb => :post, :content_md5 => true, :content_type => 'application/xml')
 
         # Amazon returns FeedSubmissionId, which we use to check if submission was successful
         submission_id = response.feed_submission_info.feed_submission_id
-        puts "ruby-mws: Got submission ID #{submission_id}" if $VERBOSE
+        logger.debug "ruby-mws: Got submission ID #{submission_id}" if $VERBOSE
         
         return submission_id
       end
