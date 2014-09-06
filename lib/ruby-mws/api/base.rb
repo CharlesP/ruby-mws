@@ -1,6 +1,9 @@
 # This class serves as a parent class to the API classes.
 # It shares connection handling, query string building, ?? among the models.
 
+require 'digest'
+require 'base64'
+
 module MWS
   module API
 
