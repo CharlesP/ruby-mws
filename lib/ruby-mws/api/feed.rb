@@ -5,6 +5,7 @@ module MWS
       def_request [:submit_feed],
                   :verb => :post,
                   :uri => '/',
+                  :content_md5 => true,
                   :version => '2009-01-01'
 
       # def_request :submit_feed,
