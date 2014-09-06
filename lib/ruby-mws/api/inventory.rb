@@ -1,8 +1,10 @@
+require 'builder'
+
 module MWS
   module API
 
     class Inventory < Base
-      include Feeds
+      include Feed
       
       def_request [:list_inventory_supply, :list_inventory_supply_by_next_token],
         :verb => :get,
