@@ -12,11 +12,11 @@ module MWS
 
       @host ||= DEFAULT_HOST
 
-      attrs.each { |a| raise MissingConnectionOptions, ":#{a} is required" if instance_variable_get("@#{a}").nil?}
+      attrs.each { |a| raise MissingConnectionOptions, ":#{a} is required" if instance_variable_get("@#{a}").nil? && a != :mws_auth_token}
     end
 
     def public_attrs
-      [:aws_access_key_id, :seller_id, :marketplace_id, :host]
+      [:aws_access_key_id, :seller_id, :marketplace_id, :host, :mws_auth_token]
     end
 
     def private_attrs

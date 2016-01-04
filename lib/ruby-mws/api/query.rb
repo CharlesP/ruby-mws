@@ -47,10 +47,11 @@ module MWS
         params = @params.dup.delete_if {|k,v| exclude_from_query.include? k}
         params[:signature] = signature if signature
         params.stringify_keys!
+        params.compact!
 
         # hack to capitalize AWS in param names
         # TODO: Allow for multiple marketplace ids
-        Hash[params.map{|k,v| [k.camelize.sub(/Aws/,'AWS'), v]}]
+        Hash[params.map{|k,v| [k.camelize.sub(/Aws/,'AWS').sub(/Mws/,'MWS'), v]}]
       end
 
       def process_param(param)
