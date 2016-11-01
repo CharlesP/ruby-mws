@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe MWS::API::Query do 
+describe RubyMWS::API::Query do 
   before do
-    @query = MWS::API::Query.new(default_params)
+    @query = RubyMWS::API::Query.new(default_params)
     @query.stub!(:signature).and_return("SIGNATURE")
   end
 

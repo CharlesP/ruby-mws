@@ -4,15 +4,15 @@
 require 'digest'
 require 'base64'
 
-module MWS
+module RubyMWS
   module API
 
     class Base
       include HTTParty
-      parser MWS::API::BinaryParser
+      parser RubyMWS::API::BinaryParser
       #debug_output $stderr  # only in development
       #format :xml
-      headers "User-Agent"   => "ruby-mws/#{MWS::VERSION} (Language=Ruby/1.9.3-p0)"
+      headers "User-Agent"   => "ruby-mws/#{RubyMWS::VERSION} (Language=Ruby/1.9.3-p0)"
       headers "Content-Type" => "text/xml"
       #headers "Content-MD5"  => "ExampleMd5HashOfHttpBodyAsPerRfc2616Example"
 
@@ -57,10 +57,10 @@ module MWS
         
         # content_type = resp.headers['content-type']
         # if not content_type =~ /text\/xml/ || content_type =~ /application\/xml/ || content_type =~ /application\/octet-stream/
-        #   raise ErrorResponse, "Expected to receive XML response from Amazon MWS! Actually received: #{content_type}\nStatus: #{resp.response.code}\nBody: #{resp.body.size > 4000 ? resp.body[0...4000] + '...' : resp.body}"
+        #   raise ErrorResponse, "Expected to receive XML response from Amazon RubyMWS! Actually received: #{content_type}\nStatus: #{resp.response.code}\nBody: #{resp.body.size > 4000 ? resp.body[0...4000] + '...' : resp.body}"
         # end
         
-        @response = Response.parse resp, name, params
+        @response = RubyMWS::API::Response.parse resp, name, params
 
         if @response.respond_to?(:next_token) and @next[:token] = @response.next_token  # modifying, not comparing
           @next[:action] = name.match(/_by_next_token/) ? name : "#{name}_by_next_token"

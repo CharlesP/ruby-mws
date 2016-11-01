@@ -4,12 +4,12 @@ require "ruby-mws/version"
 
 Gem::Specification.new do |s|
   s.name        = "ruby-mws"
-  s.version     = MWS::VERSION
+  s.version     = RubyMWS::VERSION
   s.authors     = ["Erik Lyngved"]
   s.email       = ["elyngved@gmail.com"]
   s.homepage    = "http://github.com/elyngved/ruby-mws"
-  s.summary     = %q{RubyMWS Gem}
-  s.description = %q{(Under development) This gem serves as a wrapper for Amazon.com's Marketplace Web Service (MWS) API. Visit http://github.com/elyngved/ruby-mws for documentation.}
+  s.summary     = %q{RubyRubyMWS Gem}
+  s.description = %q{(Under development) This gem serves as a wrapper for Amazon.com's Marketplace Web Service (RubyMWS) API. Visit http://github.com/elyngved/ruby-mws for documentation.}
   s.license     = 'MIT'
 
   s.rubyforge_project = "ruby-mws"

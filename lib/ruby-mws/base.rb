@@ -1,36 +1,36 @@
-module MWS
+module RubyMWS
 
   class Base
     
     attr_accessor :connection
 
     def initialize(options={})
-      @connection = MWS::Connection.new(options)
+      @connection = RubyMWS::Connection.new(options)
     end
 
     def orders
-      @orders ||= MWS::API::Order.new(@connection)
+      @orders ||= RubyMWS::API::Order.new(@connection)
     end
 
     def inventory
-      @inventory ||= MWS::API::Inventory.new(@connection)
+      @inventory ||= RubyMWS::API::Inventory.new(@connection)
     end
 
     def reports
-      @reports ||= MWS::API::Report.new(@connection)
+      @reports ||= RubyMWS::API::Report.new(@connection)
     end
 
     def products
-      @products ||= MWS::API::Product.new(@connection)
+      @products ||= RubyMWS::API::Product.new(@connection)
     end
     
     # def feeds
-    #   @feeds ||= MWS::API::Feed.new(@connection)
+    #   @feeds ||= RubyMWS::API::Feed.new(@connection)
     # end
 
     # serves as a server ping
     def self.server_time
-      MWS::Connection.server_time
+      RubyMWS::Connection.server_time
     end
 
   end

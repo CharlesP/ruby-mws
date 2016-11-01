@@ -1,6 +1,6 @@
 require 'builder'
 
-module MWS
+module RubyMWS
   module API
 
     class Inventory < Base

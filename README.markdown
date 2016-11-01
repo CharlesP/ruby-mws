@@ -5,7 +5,7 @@ by Erik Lyngved
 
 ### Read me!
 
-ruby-mws is a Ruby gem that wraps the Amazon Marketplace Web Service (MWS) API. Right now it only supports Amazon's Order and Inventory APIs.
+ruby-mws is a Ruby gem that wraps the Amazon Marketplace Web Service (RubyMWS) API. Right now it only supports Amazon's Order and Inventory APIs.
 
 I made this gem for my own purposes, and it's not fully featured. Pull requests or bug reports are always welcome.
 
@@ -14,13 +14,13 @@ Quick Start
 
 To quickly test your connection to the service without credentials, you can ping the server, which returns server time in UTC:
 
-    MWS::Base.server_time
+    RubyMWS::Base.server_time
 
 ### Initialization
 
 Pass in your developer account credentials. All four params below are required.
 
-    mws = MWS.new (:aws_access_key_id => "AKIAIFKEXAMPLE4WZHHA",
+    mws = RubyMWS.new (:aws_access_key_id => "AKIAIFKEXAMPLE4WZHHA",
       :secret_access_key => "abc123def456/SECRET/+ghi789jkl",
       :seller_id => "A27WEXAMPLEBXY",
       :marketplace_id => "ATVPDKIKX0DER")
@@ -75,9 +75,9 @@ Or if you need to, you can save `next_token` and go about the manual way as per 
 API
 ---
 
-    @mws = MWS.new(authentication_hash)   # initialize the connection object (see above)
+    @mws = RubyMWS.new(authentication_hash)   # initialize the connection object (see above)
 
-This object can be used to access all API services. Below are examples on how to make the different requests that are available so far. Refer to the [Amazon MWS Reference Docs](https://developer.amazonservices.com/) for available fields for each request.
+This object can be used to access all API services. Below are examples on how to make the different requests that are available so far. Refer to the [Amazon RubyMWS Reference Docs](https://developer.amazonservices.com/) for available fields for each request.
 
 ### Orders API
 

@@ -1,3 +1,3 @@
-module MWS
+module RubyMWS
   VERSION = "0.1"
 end

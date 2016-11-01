@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe MWS::API::Report do
+describe RubyMWS::API::Report do
 
   before :all do
     EphemeralResponse.activate
-    @mws = MWS.new(auth_params)
+    @mws = RubyMWS.new(auth_params)
   end
 
   context "requests" do

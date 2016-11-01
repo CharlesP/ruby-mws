@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe MWS::API::Inventory do
+describe RubyMWS::API::Inventory do
 
   before :all do
     EphemeralResponse.activate
-    @mws = MWS.new(auth_params)
+    @mws = RubyMWS.new(auth_params)
   end
 
   context "requests" do

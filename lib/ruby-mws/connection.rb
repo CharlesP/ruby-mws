@@ -1,4 +1,4 @@
-module MWS
+module RubyMWS
 
   class Connection
 
@@ -29,7 +29,7 @@ module MWS
 
     # an attempt to hide sensitive login credentials in logs, just being paranoid
     def inspect
-      "#<MWS::Connection:#{object_id}>"
+      "#<RubyMWS::Connection:#{object_id}>"
     end
 
     def server_time

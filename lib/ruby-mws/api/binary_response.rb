@@ -1,4 +1,4 @@
-module MWS
+module RubyMWS
   module API
 
     class BinaryResponse < Struct.new(:body)

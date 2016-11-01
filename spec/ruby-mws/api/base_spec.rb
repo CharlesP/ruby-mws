@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe MWS::API::Base do
-  class FakeApi < MWS::API::Base
+describe RubyMWS::API::Base do
+  class FakeApi < RubyMWS::API::Base
     def self.test_params
       {
         :verb    => :get,

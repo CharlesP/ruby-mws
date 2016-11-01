@@ -1,4 +1,4 @@
-module MWS
+module RubyMWS
   module API
 
     class Response < Hashie::Rash

@@ -1,17 +1,17 @@
-module MWS
+module RubyMWS
 
-  class MWSException < StandardError
+  class RubyMWSException < StandardError
   end
 
-  class MissingConnectionOptions < MWSException
+  class MissingConnectionOptions < RubyMWSException
   end
 
-  class NoNextToken < MWSException
+  class NoNextToken < RubyMWSException
   end
 
-  class ErrorResponse < MWSException
+  class ErrorResponse < RubyMWSException
   end
 
-  class BadResponseError < MWSException
+  class BadResponseError < RubyMWSException
   end
 end
