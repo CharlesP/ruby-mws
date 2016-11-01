@@ -51,7 +51,7 @@ module RubyMWS
 
         # hack to capitalize AWS in param names
         # TODO: Allow for multiple marketplace ids
-        Hash[params.map{|k,v| [k.camelize.sub(/Aws/,'AWS').sub(/Mws/,'RubyMWS'), v]}]
+        Hash[params.map{|k,v| [k.camelize.sub(/Aws/,'AWS').sub(/Mws/,'MWS'), v]}]
       end
 
       def process_param(param)
